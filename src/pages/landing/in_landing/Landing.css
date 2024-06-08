@@ -1,0 +1,47 @@
+.quarter_container {
+    display: flex;
+    overflow: hidden;
+}
+
+.quarter_columnize {
+    padding: 20px;
+    position: relative;
+}
+
+.left_column {
+    flex: 0 0 auto;
+    flex-basis: 25%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.right_column {
+    flex: 1;
+    flex-basis: 75%;
+    overflow-y: auto;
+    height: 86vh;
+}
+
+.left_column::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    background-color: black;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
