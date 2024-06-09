@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client';
 // import './index.css';
 // import App from './App';
 import Landing from './pages/landing/Landing';
+import Login from './pages/login/Login';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Landing />
+    <Login />
   </React.StrictMode>
 );
 
