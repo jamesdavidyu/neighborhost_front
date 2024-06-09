@@ -9,10 +9,10 @@ function LoggedIn() {
     
     // this is the main block of code for getting data from backend
     useEffect(() => {
-        const url = BaseUrl + 'create_account/';
+        const url = BaseUrl + 'api/login/';
         fetch(url)
             .then((response) => {
-                if(response.status === 500){
+                if(response.status === 401){
                     <Landing />; // need to change to an actual 404 page
                 }
                 return response.json();
@@ -27,7 +27,7 @@ function LoggedIn() {
         <>
             <h1>Test</h1>
             {neighbors ? neighbors.map((neighbor) => {
-                return <p>{neighbor.username}</p>;
+                return <p>{neighbor.zipcode}</p>;
             }) : null}
         </>
     );
