@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../index.css';
+import Landing from '../landing/Landing';
+import { BaseUrl } from '../../BaseUrl';
 
 function LoggedIn() {
     // this defines variables for json data from backend
@@ -7,11 +9,15 @@ function LoggedIn() {
     
     // this is the main block of code for getting data from backend
     useEffect(() => {
-        console.log('Fetching...');
-        fetch('http://localhost:8000/create_account/')
-            .then((response) => response.json())
+        const url = BaseUrl + 'create_account/';
+        fetch(url)
+            .then((response) => {
+                if(response.status === 500){
+                    <Landing />; // need to change to an actual 404 page
+                }
+                return response.json();
+            })
             .then((data) => {
-                console.log(data);
                 setNeighbors(data.neighbors);
             });
     }, []);
