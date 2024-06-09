@@ -15,7 +15,7 @@ const CreateAccountButton = () => {
             <label className="format">Looking for your friends?</label>
             <div style={{ paddingLeft: "5px" }}>
                 <button onClick={togglePopup} className="button_format" style={{ backgroundColor: "yellow", width: "90.25%", height: "59.2px", fontSize: "15.92px" }}>
-                    Create an account
+                    <p>Create an account</p>
                 </button>
             </div>
             {isPopupVisible && (

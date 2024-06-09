@@ -5,7 +5,7 @@ import './Landing.css';
 function ForgotPassword() {
     return (
         <form align="right">
-            <input type="submit" className="buttonless_button" style={{ color:"red" }} value="Forgot password?"/>
+            <button type="submit" className="buttonless_button" style={{ color:"red" }}><p>Forgot password?</p></button>
             <br />
             <br />
         </form>

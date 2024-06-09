@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom'
 import '../../../index.css';
 import './Landing.css';
 
@@ -29,7 +30,9 @@ function CreateAccountForm() {
                 </div>
                 <br />
                 <div>
-                    <input type="submit" value="Sign Up" className="button_format" style={{ backgroundColor: "black", color: "white", width: "90.25%", height: "50.29px", fontSize: "15.92px" }} />
+                    <button type="submit" className="button_format" style={{ backgroundColor: "black", color: "white", width: "90.25%", height: "50.29px", fontSize: "15.92px" }}>
+                        <p>Sign Up</p>
+                    </button>
                 </div>
             </form>
             <br />
