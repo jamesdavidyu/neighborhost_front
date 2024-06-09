@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../index.css';
 import Landing from '../landing/Landing';
 import { BaseUrl } from '../../BaseUrl';
@@ -6,6 +7,7 @@ import { BaseUrl } from '../../BaseUrl';
 function LoggedIn() {
     // this defines variables for json data from backend
     const [neighbors, setNeighbors] = useState();
+    const navigate = useNavigate();
     
     // this is the main block of code for getting data from backend
     useEffect(() => {
@@ -13,7 +15,7 @@ function LoggedIn() {
         fetch(url)
             .then((response) => {
                 if(response.status === 401){
-                    <Landing />; // need to change to an actual 404 page
+                    navigate(""); // need to change to an actual 404 page
                 }
                 return response.json();
             })
