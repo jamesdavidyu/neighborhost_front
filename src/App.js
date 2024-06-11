@@ -3,6 +3,7 @@ import { createContext, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './pages/landing/Landing';
 import Login from './pages/login/Login';
+import VerifyAccount from './pages/verify_account/VerifyAccount';
 import { BaseUrl } from './BaseUrl';
 
 export const LoginContext = createContext()
@@ -52,6 +53,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='/verify_account' element={<VerifyAccount />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

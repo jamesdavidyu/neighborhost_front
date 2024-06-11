@@ -4,7 +4,7 @@ import '../../index.css';
 import { BaseUrl } from '../../BaseUrl';
 import { LoginContext } from '../../App';
 
-function LoggedIn() {
+function Login() {
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
     // this defines variables for json data from backend
     const [neighbors, setNeighbors] = useState();
@@ -62,4 +62,4 @@ function LoggedIn() {
     );
 };
 
-export default LoggedIn;
+export default Login;
