@@ -38,7 +38,7 @@ function Landing() {
             }
             return response.json();
         }).then((data) => {
-            setLanding(data.landing);
+            setLanding(data.landing); // this needs to fixed to get data, right now it cannot get data from api/login
         });
     }, []);
 
