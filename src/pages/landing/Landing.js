@@ -12,34 +12,38 @@ import { LoginContext } from '../../App';
 
 function Landing() {
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
-    const [landing, setLanding] = useState();
+    // const [landing, setLanding] = useState();
+    const [neighbors, setNeighbors] = useState();
 
     const navigate = useNavigate()
     const location = useLocation()
 
     useEffect(() => {
-        const url = BaseUrl + 'api/login/'; // need API to respond with event data also
-        fetch(url, {
-            headers: {
-                'Content-Type' : 'application/json',
-                Authorization : 'Bearer ' + localStorage.getItem('access')
-            },
-        })
-        .then((response) => {
-            if(response.status === 200){
-                navigate('/login')
-            } else if(response.status === 401){
-                setLoggedIn(false);
-                navigate('/', {
-                    state: {
-                        previousUrl: location.pathname,
-                    }
-                }); // can I do a separate fetch in here to get landing data?
-            }
-            return response.json();
-        }).then((data) => {
-            setLanding(data.landing); // this needs to fixed to get data, right now it cannot get data from api/login
-        });
+        if(loggedIn === true){
+            const url = BaseUrl + 'api/login/'; // need API to respond with event data also
+            fetch(url, {
+                headers: {
+                    'Content-Type' : 'application/json',
+                    Authorization : 'Bearer ' + localStorage.getItem('access')
+                },
+            })
+            .then((response) => {
+                if(response.status === 200){
+                    navigate('/login')
+                } else if(response.status === 401){
+                    setLoggedIn(false);
+                    navigate('/', {
+                        state: {
+                            previousUrl: location.pathname,
+                        }
+                    }); // can I do a separate fetch in here to get landing data?
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setNeighbors(data.neighbors); // this still sends data to Login.js, interesting
+            });    
+        } // else if fetch from api/events return landing data
     }, []);
 
     return (
@@ -52,9 +56,9 @@ function Landing() {
             </div>
             <div className="quarter_columnize right_column">
                 <LandingEvents />
-                {landing ? landing.map((land) => {
+                {/* {landing ? landing.map((land) => {
                     return <p>{land.neighborhood}</p>;
-                }) : null}
+                }) : null} */}
             </div>
         </div>
     );
