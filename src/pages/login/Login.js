@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import '../../index.css';
 import { BaseUrl } from '../../BaseUrl';
 import { LoginContext } from '../../App';
+import HomeButton from '../../HomeButton';
 
 function Login() {
     const [loggedIn, setLoggedIn] = useContext(LoginContext);
@@ -47,6 +48,7 @@ function Login() {
     // this is frontend code
     return (
         <>
+            <HomeButton />
             <form onClick={logOut}>
                 <button 
                     type="submit" 
