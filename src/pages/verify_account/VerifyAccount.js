@@ -1,7 +1,10 @@
 import React from 'react'
+import HomeButton from '../../HomeButton';
 
 export default function VerifyAccount() {
     return (
-        <h1>Test</h1>
+        <div>
+            
+        </div>
     );
 };
